@@ -82,12 +82,6 @@ async function init(): Promise<void> {
 
   // get quote mint and amount
   switch (QUOTE_MINT) {
-    case 'SOL': {
-        quoteToken = Token.SOL;
-        quoteAmount = new TokenAmount(Token.SOL, QUOTE_AMOUNT, false);
-        quoteMinPoolSizeAmount = new TokenAmount(quoteToken, MIN_POOL_SIZE, false);
-        break;
-    },
     case 'WSOL': {
       quoteToken = Token.WSOL;
       quoteAmount = new TokenAmount(Token.WSOL, QUOTE_AMOUNT, false);
