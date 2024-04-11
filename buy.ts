@@ -460,7 +460,7 @@ const runListener = async () => {
       const poolOpenTime = parseInt(poolState.poolOpenTime.toString());
       const existing = existingLiquidityPools.has(key);
 
-      if (true || (poolOpenTime > runTimestamp && !existing)) {
+      if (!existing || (poolOpenTime > runTimestamp && !existing)) {
         existingLiquidityPools.add(key);
         const _ = processRaydiumPool(updatedAccountInfo.accountId, poolState);
       }
