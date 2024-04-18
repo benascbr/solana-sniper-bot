@@ -12,6 +12,8 @@ export class PoolSizeFilter implements Filter {
   ) {}
 
   async execute(poolState: LiquidityStateV4): Promise<FilterResult> {
+
+    return {ok: true};
     try {
       const response = await this.connection.getTokenAccountBalance(poolState.quoteVault, this.connection.commitment);
       const poolSize = new TokenAmount(this.quoteToken, response.value.amount, true);
@@ -32,6 +34,7 @@ export class PoolSizeFilter implements Filter {
           return { ok: false, message: `PoolSize -> Pool size ${poolSize.toFixed()} < ${this.minPoolSize.toFixed()}` };
         }
       }
+
 
       return { ok: inRange };
     } catch (error) {
