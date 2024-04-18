@@ -196,6 +196,7 @@ const runListener = async () => {
     const poolOpenTime = parseInt(poolState.poolOpenTime.toString());
     const exists = await poolCache.get(poolState.baseMint.toString());
 
+    //asd
     if (!exists && (poolOpenTime > runTimestamp || true)) {
       poolCache.save(updatedAccountInfo.accountId.toString(), poolState);
       await bot.buy(updatedAccountInfo.accountId, poolState);

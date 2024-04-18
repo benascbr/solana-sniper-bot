@@ -99,7 +99,7 @@ export class Bot {
     logger.trace({ mint: poolState.baseMint }, `Processing buy...`);
 
     if (this.config.useSnipeList && !this.snipeListCache?.isInList(poolState.baseMint.toString())) {
-      logger.debug({ mint: poolState.baseMint.toString() }, `Skipping buy because token is not in a snipe list`);
+      logger.debug({ mint: poolState.baseMint.toString() }, `Skipping buy because token is not in a snipe list (CUSTOM)`);
       return;
     }
 
